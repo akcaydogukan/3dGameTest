@@ -4,13 +4,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class Coincollections : MonoBehaviour
 {
+    private CoinInst randomizer;
     private AudioSource click;
+    private GameObject _gameObject;
     private void Start()
     {
         click = GetComponent<AudioSource>();
+        randomizer = gameObject.GetComponent(typeof(CoinInst)) as CoinInst;
         
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,6 +33,7 @@ public class Coincollections : MonoBehaviour
     {
         //3 saniye sonra aktif state donecek
         yield return new WaitForSeconds(3);
+        
         gameObject.SetActive(true);
 
         
